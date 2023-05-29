@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon May 29 15:28:37 2023
-
-@author: Dell
-"""
-
 rock = '''
     _______
 ---'   ____)
@@ -33,33 +26,24 @@ scissors = '''
 '''
 
 #Write your code below this line 👇
-import random
+import random 
+
+game_image = [rock, paper, scissors]
 player1 = int(input("Choose Your Weapon: Rock, Paper, Scissors!\nType\n0 for Rock\n1 for Paper\n2 for Scissors\n"))
-computer = random.randint(0,2)
-
-print("You chose:")
-if player1==0:
-  print(rock)
-elif player1==1:
-  print(paper)
-else:
-  print(scissors)
-
 print("\n")
-
-print("Computer chose:")
-if computer==0:
-  print(rock)
-elif computer==1:
-  print(paper)
+if player1>2:
+  print("Invalid Choice!")
 else:
-  print(scissors)
-  
-print("\n")
+  computer = random.randint(0,2)
 
-if computer==player1:
-  print("It's a draw!!")
-elif (computer==0 and player1==2) or (player1 < computer):
-  print("You Lose :(")
-else:
-  print("You win!! :)")
+  print(f"You chose:\n{game_image[player1]}\n")
+  print(f"Computer chose:\n{game_image[computer]}\n")
+
+  if computer==player1:
+    print("It's a draw!!")
+  elif (player1==0 and computer==2):
+    print("You win!! :)")
+  elif (computer==0 and player1==2) or (player1 < computer):
+    print("You Lose :(")
+  else:
+    print("You win!! :)")
